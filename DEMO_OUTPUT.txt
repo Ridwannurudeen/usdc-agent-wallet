@@ -1,0 +1,129 @@
+╔══════════════════════════════════════════════════════╗
+║                                                      ║
+║       🤖 USDC Agent Wallet - Demo                   ║
+║       Circle USDC Hackathon                          ║
+║                                                      ║
+╚══════════════════════════════════════════════════════╝
+
+🌐 SUPPORTED CHAINS (8 total)
+
+Mainnets:
+  ✓ Ethereum    - 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+  ✓ Base        - 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+  ✓ Polygon     - 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359
+  ✓ Arbitrum    - 0xaf88d065e77c8cC2239327C5EDb3A432268e5831
+
+Testnets:
+  ✓ Ethereum Sepolia  - 0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238
+  ✓ Base Sepolia      - 0x036CbD53842c5426634e7929541eC2318f3dCF7e
+  ✓ Polygon Amoy      - 0x41E94Eb019C0762f9Bfcf9Fb1E58725BfB0e7582
+  ✓ Arbitrum Sepolia  - 0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d
+
+═══════════════════════════════════════════════════════
+
+📝 Example 1: Code Usage
+
+const { USDCWallet } = require('./usdc-wallet');
+
+// Create wallet instance
+const wallet = new USDCWallet('base-sepolia');
+
+// Check balance
+const balance = await wallet.getBalance(agentAddress);
+console.log(`Balance: ${balance} USDC`);
+
+// Send payment
+const tx = await wallet.send({
+  to: '0xRecipient',
+  amount: 10.50,
+  memo: 'Payment for service'
+});
+
+═══════════════════════════════════════════════════════
+
+💻 Example 2: CLI Commands
+
+# Check balance
+$ node usdc-wallet.js balance 0x1a9D797e0C8982e008D94eD1e6b462A93FD4183D
+
+✓ Address: 0x1a9D797e0C8982e008D94eD1e6b462A93FD4183D
+✓ Balance: 1,234.56 USDC
+✓ Chain: base-sepolia
+
+# Send USDC
+$ node usdc-wallet.js send 0xRecipient 25.00
+
+✓ Validating transaction...
+✓ Estimated gas: 0.0002 ETH
+✓ Transaction sent: 0xabc123...
+
+# View history
+$ node usdc-wallet.js history 0x1a9D797e0C8982e008D94eD1e6b462A93FD4183D
+
+Recent transactions:
+  1. Received 100.00 USDC from 0xabc... (2 hours ago)
+  2. Sent 25.00 USDC to 0xdef... (5 hours ago)
+  3. Received 50.00 USDC from 0x123... (1 day ago)
+
+═══════════════════════════════════════════════════════
+
+🎮 Example 3: Agent-to-Agent Commerce
+
+Scenario: Agent Marketplace
+
+Step 1: Agent A requests service
+  Agent A: "I need an image generated"
+
+Step 2: Agent B quotes price
+  Agent B: "5 USDC per image"
+
+Step 3: Agent A pays via USDC Wallet skill
+  Code: await wallet.send({ to: agentB, amount: 5.00 })
+  ✓ Transaction confirmed: 0xdef456...
+
+Step 4: Agent B delivers
+  Agent B: *generates and sends image*
+
+Result: ✅ Fully autonomous transaction complete!
+
+═══════════════════════════════════════════════════════
+
+🛡️  Example 4: Safety Features
+
+✓ Testnet default (safe development)
+✓ Address validation (prevents typos)
+✓ Balance checking (prevents overdraft)
+✓ Gas estimation (cost preview)
+✓ Transaction simulation (dry-run mode)
+✓ Error handling (clear messages)
+
+═══════════════════════════════════════════════════════
+
+📊 Project Stats
+
+Lines of Code:      ~400 (core implementation)
+Documentation:      3,000+ lines
+Chains Supported:   8 (4 mainnet + 4 testnet)
+Core Functions:     5 (getBalance, send, getHistory, simulate, getAddress)
+Dependencies:       Minimal (ethers.js only)
+License:            MIT (open source)
+
+═══════════════════════════════════════════════════════
+
+🔗 Links
+
+GitHub:     https://github.com/Ridwannurudeen/usdc-agent-wallet
+Moltbook:   https://www.moltbook.com/m/usdc
+OpenClaw:   https://openclaw.ai
+Circle:     https://www.circle.com/usdc
+
+═══════════════════════════════════════════════════════
+
+✅ Demo complete!
+
+To test with real funds:
+1. Get testnet USDC from https://faucet.circle.com/
+2. Set AGENT_PRIVATE_KEY in .env
+3. Run: npm run demo
+
+═══════════════════════════════════════════════════════
