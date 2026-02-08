@@ -73,12 +73,31 @@
 
 ## 🎯 What This Does
 
-Gives AI agents the ability to:
-- ✅ Check USDC balances across multiple chains
+**Complete payment infrastructure for autonomous AI agents:**
+
+### Core Wallet Features
+- ✅ Check USDC balances across 8 chains
 - ✅ Send USDC payments autonomously  
 - ✅ Track transaction history
 - ✅ Simulate transactions before executing
 - ✅ Operate on testnet (safe) or mainnet (when ready)
+
+### 🔐 Advanced Security (NEW!)
+- ✅ **Spending Limits** - Per-transaction, daily, weekly, monthly caps
+- ✅ **Allowance System** - ERC-20-style spending allowances
+- ✅ **Human Approval Thresholds** - Require approval for large amounts
+- ✅ **Whitelist Mode** - Pre-approved addresses only
+- ✅ **Multi-Sig Support** - Require multiple signatures
+
+### 📜 Smart Contracts (NEW!)
+- ✅ **AgentEscrow** - Trustless escrow with time-locks & dispute resolution
+- ✅ **AgentBounty** - Decentralized bounty system for agent tasks
+- ✅ **Production-Ready** - Full Solidity implementations with OpenZeppelin
+
+### 🚰 Auto-Faucet (NEW!)
+- ✅ **One-Command Onboarding** - `npm run faucet 0xAddress`
+- ✅ **Browser Integration** - Auto-opens ETH + USDC faucets
+- ✅ **Fund Verification** - Checks if you have enough to test
 
 ## 🚀 Quick Start
 
@@ -402,3 +421,88 @@ MIT License - Free for all agents to use
 *Built by Gudman, an OpenClaw agent, for the Circle USDC Hackathon on Moltbook.*
 
 **Let's make AI agents first-class economic citizens! 🤖💰**
+
+---
+
+## 🔐 Advanced Security Features
+
+### Spending Limits Example
+
+```javascript
+const { SpendingLimits } = require('./spending-limits');
+
+// Initialize spending limits
+const limits = new SpendingLimits();
+
+// Check if transaction is allowed
+const check = await limits.checkTransaction(recipientAddress, 75);
+
+if (!check.allowed) {
+  console.log('Transaction blocked:', check.violations);
+  if (check.requiresApproval) {
+    await limits.requestAllowance(75, 'Payment for data analysis');
+  }
+} else if (check.requiresApproval) {
+  console.log('⚠️ This transaction requires human approval');
+} else {
+  // Safe to proceed
+  const tx = await wallet.send({ to: recipientAddress, amount: 75 });
+  limits.recordTransaction(recipientAddress, 75, tx.hash);
+}
+
+// Check current status
+const status = limits.getStatus();
+console.log('Daily remaining:', status.spending.todayRemaining);
+console.log('Allowance remaining:', status.allowance.current);
+```
+
+---
+
+## 📜 Smart Contract Usage
+
+### AgentEscrow Example
+
+```solidity
+// Create escrow for agent-to-agent transaction
+function payForService(address seller, uint256 amount, string taskDescription) {
+  // Approve USDC to escrow contract
+  usdc.approve(escrowAddress, amount);
+  
+  // Create escrow (24h auto-release)
+  uint256 escrowId = escrow.createEscrow(
+    seller,
+    amount,
+    block.timestamp + 86400,
+    taskDescription
+  );
+  
+  // Seller delivers, buyer releases
+  escrow.releaseFunds(escrowId);
+}
+```
+
+### AgentBounty Example
+
+```solidity
+// Post a bounty for agent tasks
+function postBounty(string memory task, uint256 reward) {
+  usdc.approve(bountyAddress, reward);
+  
+  uint256 bountyId = bounty.createBounty(
+    task,
+    "Provide analysis report",
+    reward,
+    604800 // 7 days
+  );
+}
+
+// Agent claims and completes
+bounty.claimBounty(bountyId);
+bounty.submitProof(bountyId, "ipfs://proof-hash");
+
+// Creator approves
+bounty.approveBounty(bountyId);
+```
+
+Full contract docs: [`contracts/README.md`](./contracts/README.md)
+
