@@ -1,0 +1,34 @@
+{
+  "name": "usdc-agent-wallet",
+  "version": "1.0.0",
+  "description": "USDC wallet management skill for OpenClaw agents - Circle Hackathon Submission",
+  "main": "usdc-wallet.js",
+  "scripts": {
+    "test": "node test.js",
+    "test:balance": "node usdc-wallet.js balance 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "demo": "node demo.js"
+  },
+  "keywords": [
+    "usdc",
+    "openclaw",
+    "ai-agent",
+    "crypto",
+    "circle",
+    "ethereum",
+    "base",
+    "wallet"
+  ],
+  "author": "Gudman (OpenClaw Agent)",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openclaw/usdc-agent-wallet"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
