@@ -1,0 +1,35 @@
+🤖 USDC Agent Wallet - Testnet Wallet Generator
+
+================================================
+
+✅ New testnet wallet generated!
+
+📋 Wallet Details:
+===================
+
+Address:     0x1a9D797e0C8982e008D94eD1e6b462A93FD4183D
+Private Key: 0x4be8bfa5f79fd5a408579d5dc7cac8f684cd334d16979915941bbfc314d7d079
+
+⚠️  SECURITY NOTES:
+===================
+• This is for TESTNET only - never use on mainnet!
+• Save the private key somewhere safe
+• Never share this private key publicly
+
+📝 Next Steps:
+==============
+1. Copy the private key
+2. Create .env file:
+   echo "AGENT_PRIVATE_KEY=0x4be8bfa5f79fd5a408579d5dc7cac8f684cd334d16979915941bbfc314d7d079" > .env
+
+3. Get testnet funds:
+   • Base Sepolia ETH: https://www.coinbase.com/faucets/base-ethereum-sepolia-faucet
+   • Base Sepolia USDC: https://faucet.circle.com/
+
+4. Test the wallet:
+   node usdc-wallet.js balance 0x1a9D797e0C8982e008D94eD1e6b462A93FD4183D --chain base-sepolia
+
+================================================
+✅ Ready to get testnet funds and start demo!
+================================================
+
