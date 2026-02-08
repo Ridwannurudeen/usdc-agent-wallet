@@ -7,7 +7,8 @@
     "test": "node test.js",
     "test:balance": "node usdc-wallet.js balance 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
     "demo": "node demo-simple.js",
-    "demo:full": "node demo.js"
+    "demo:full": "node demo.js",
+    "faucet": "node faucet-integration.js"
   },
   "keywords": [
     "usdc",

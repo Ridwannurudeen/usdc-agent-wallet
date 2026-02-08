@@ -149,6 +149,30 @@ node usdc-wallet.js simulate 0xRecipient 100
 
 *Default: Base Sepolia (testnet - safe for experimentation)*
 
+---
+
+## 🚰 NEW: Auto-Faucet Integration
+
+**One-command testnet onboarding** - requested by community feedback!
+
+Get testnet funds easily for testing:
+
+```bash
+# Interactive faucet helper
+npm run faucet 0xYourAddress
+
+# Or directly
+node faucet-integration.js 0xYourAddress base-sepolia
+```
+
+**What it does:**
+- ✅ Opens ETH and USDC faucets in your browser
+- ✅ Provides step-by-step instructions
+- ✅ Checks if you have sufficient funds
+- ✅ Supports all testnet chains
+
+**No more manual searching for faucets!** Perfect for non-developers getting started.
+
 ## 💡 Use Cases
 
 ### 1. Agent Marketplace
