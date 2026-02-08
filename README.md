@@ -9,11 +9,34 @@
 
 ---
 
-## 🎬 Live Demo
+## 🚀 Quick Start Demo
 
-![USDC Agent Wallet Demo](./demo.gif)
+```bash
+# 1. Generate a secure wallet
+$ node usdc-wallet.js generate
+✅ Wallet generated successfully!
+   Address: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb8
+   🔐 Secured with hardware entropy + BIP39
 
-*Watch the wallet in action: wallet generation, multi-chain balance checks, safe transfers with pre-flight validation, and production features.*
+# 2. Check balances across all chains
+$ node usdc-wallet.js balance
+⚡ Multi-Chain Balance Report:
+   Base Sepolia:      250.00 USDC
+   Arbitrum Sepolia:  180.00 USDC  
+   Optimism Sepolia:  320.00 USDC
+   Polygon Amoy:      150.00 USDC
+   📊 Total: 900.00 USDC across 4 chains
+
+# 3. Safe transfer with pre-flight validation
+$ node usdc-wallet.js transfer --to 0x123...abc --amount 50 --chain base-sepolia
+🔍 Pre-flight Checks:
+   ✓ Sufficient balance (250 USDC available)
+   ✓ Valid recipient address
+   ✓ Gas estimation: 0.0002 ETH
+   ✓ Spending limit: OK (50 < 100 daily limit)
+💸 Transferring 50 USDC...
+✅ Transfer successful! TX: 0xab12...cd34 (confirmed in 2.3s)
+```
 
 ---
 
