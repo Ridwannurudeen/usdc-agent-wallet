@@ -9,6 +9,14 @@
 
 ---
 
+## 🎬 Live Demo
+
+![USDC Agent Wallet Demo](./demo.gif)
+
+*Watch the wallet in action: wallet generation, multi-chain balance checks, safe transfers with pre-flight validation, and production features.*
+
+---
+
 ## 📊 Architecture Overview
 
 ```
