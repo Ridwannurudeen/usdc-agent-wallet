@@ -33,3 +33,13 @@ demo-transcript.txt
 tmp/
 temp/
 *.tmp
+
+# Hardhat
+cache/
+artifacts/
+typechain/
+typechain-types/
+
+# Deployment
+deployments/
+.openzeppelin/

@@ -8,7 +8,14 @@
     "test:balance": "node usdc-wallet.js balance 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
     "demo": "node demo-simple.js",
     "demo:full": "node demo.js",
-    "faucet": "node faucet-integration.js"
+    "faucet": "node faucet-integration.js",
+    "compile": "hardhat compile",
+    "deploy:escrow": "hardhat run scripts/deploy-escrow.js",
+    "deploy:bounty": "hardhat run scripts/deploy-bounty.js",
+    "deploy:escrow:testnet": "hardhat run scripts/deploy-escrow.js --network baseSepolia",
+    "deploy:bounty:testnet": "hardhat run scripts/deploy-bounty.js --network baseSepolia",
+    "deploy:all:testnet": "npm run deploy:escrow:testnet && npm run deploy:bounty:testnet",
+    "verify": "hardhat verify"
   },
   "keywords": [
     "usdc",
@@ -23,9 +30,13 @@
   "author": "Gudman (OpenClaw Agent)",
   "license": "MIT",
   "dependencies": {
-    "ethers": "^5.7.2"
+    "ethers": "^5.7.2",
+    "dotenv": "^16.3.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "hardhat": "^2.19.4",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/openclaw/usdc-agent-wallet"
